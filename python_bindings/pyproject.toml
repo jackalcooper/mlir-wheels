@@ -15,14 +15,14 @@ build-backend = "setuptools.build_meta"
 [tool.cibuildwheel]
 enable = "cpython-prerelease cpython-freethreading"
 build-frontend = "pip; args: --no-build-isolation"
-environment = { PIP_FIND_LINKS = "wheelhouse https://github.com/makslevental/mlir-wheels/releases/expanded_assets/latest", PIP_NO_BUILD_ISOLATION = "false" }
+environment = { PIP_FIND_LINKS = "wheelhouse https://github.com/jackalcooper/mlir-wheels/releases/expanded_assets/latest", PIP_NO_BUILD_ISOLATION = "false" }
 build-verbosity = 3
 before-all = [
     "rm -rf {project}/build",
     "rm -rf *egg*",
 ]
 manylinux-aarch64-image = "quay.io/pypa/manylinux_2_34_aarch64"
-manylinux-x86_64-image = "ghcr.io/makslevental/manylinux_2_28_x86_64_cuda_12.3"
+manylinux-x86_64-image = "ghcr.io/jackalcooper/manylinux_2_28_x86_64_cuda_12.3"
 
 [tool.cibuildwheel.linux]
 build = "cp38-* cp39-* cp310-* cp311-* cp312-* cp313-* cp314-* cp314t-*"

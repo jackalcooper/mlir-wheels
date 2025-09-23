@@ -9,7 +9,7 @@ fi
 # pip-compile --all-build-deps --only-build-deps -o ./build-reqs.txt ./pyproject.toml
 
 if [ ! -d mlir_native_tools ]; then
-  pip download mlir_native_tools -f https://makslevental.github.io/wheels
+  pip download mlir_native_tools -f https://jackalcooper.github.io/wheels
   unzip -o -j mlir_native_tools-*whl -d mlir_native_tools
   rm -rf mlir_native_tools-*whl
 fi

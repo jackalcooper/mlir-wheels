@@ -20,7 +20,7 @@ manylinux-aarch64-image = "manylinux_2_28"
 manylinux-x86_64-image = "manylinux_2_28"
 
 [tool.cibuildwheel.linux]
-environment = { PATH = "/usr/lib/ccache:/usr/lib64/ccache:/usr/lib/ccache/bin:$PATH", PIP_FIND_LINKS = "https://github.com/makslevental/mlir-wheels/releases/expanded_assets/latest" }
+environment = { PATH = "/usr/lib/ccache:/usr/lib64/ccache:/usr/lib/ccache/bin:$PATH", PIP_FIND_LINKS = "https://github.com/jackalcooper/mlir-wheels/releases/expanded_assets/latest" }
 before-build = [
     "{project}/scripts/docker_prepare_ccache.sh",
     "{project}/scripts/install_cuda.sh",
@@ -54,7 +54,7 @@ repair-wheel-command = [
 ]
 
 [tool.cibuildwheel.macos]
-environment = { PATH = "/usr/local/opt/ccache/libexec:$PATH", PIP_FIND_LINKS = "https://github.com/makslevental/mlir-wheels/releases/expanded_assets/latest" }
+environment = { PATH = "/usr/local/opt/ccache/libexec:$PATH", PIP_FIND_LINKS = "https://github.com/jackalcooper/mlir-wheels/releases/expanded_assets/latest" }
 before-build = [
     "{project}/scripts/install_vulkan.sh",
     "{project}/scripts/apply_patches.sh",
@@ -64,7 +64,7 @@ repair-wheel-command = [
 ]
 
 [tool.cibuildwheel.windows]
-environment = { PIP_FIND_LINKS = "https://github.com/makslevental/mlir-wheels/releases/expanded_assets/latest" }
+environment = { PIP_FIND_LINKS = "https://github.com/jackalcooper/mlir-wheels/releases/expanded_assets/latest" }
 before-build = [
     "pip install delvewheel",
     "bash {project}\\scripts\\install_vulkan.sh",

@@ -20,7 +20,7 @@ g = Github(auth=auth)
 n_deleted = 0
 for _ in range(100):
     n_deleted = 0
-    repo = g.get_repo("makslevental/wheels")
+    repo = g.get_repo("jackalcooper/wheels")
     release = repo.get_release(113028511)
     assets = release.get_assets()
     for ass in assets:
@@ -31,7 +31,7 @@ for _ in range(100):
             assert ass.delete_asset()
             n_deleted += 1
 
-    repo = g.get_repo("makslevental/mlir-wheels")
+    repo = g.get_repo("jackalcooper/mlir-wheels")
     release = repo.get_release(111725799)
     assets = release.get_assets()
     for ass in assets:
