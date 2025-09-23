@@ -71,9 +71,10 @@ on:
     - cron: '00 01 * * *'
       # At minute 0 past every 4th hour. (see https://crontab.guru)
     - cron: '0 */4 * * *'
-  push:
-    branches:
-      - fix-patch-failure
+
+concurrency:
+  group: mlir-wheels-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
 
