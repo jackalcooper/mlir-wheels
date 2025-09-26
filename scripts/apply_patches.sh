@@ -19,13 +19,17 @@ if [ x"$MATRIX_OS" == x"macos-13" ]; then
   PATCHES="$PATCHES mac_vec"
 fi
 
+LLVM_REPO_PATH=${@:-llvm-project}
+wheels_dir=$(dirname "$0")/..
+cd $(dirname "$LLVM_REPO_PATH")
+
 if [[ x"${APPLY_PATCHES:-true}" == x"true" ]]; then
   for PATCH in $PATCHES; do
     echo "applying $PATCH"
-    git apply --quiet --ignore-space-change --ignore-whitespace --directory llvm-project patches/$PATCH.patch
+    git apply --quiet --ignore-space-change --ignore-whitespace --directory llvm-project $wheels_dir/patches/$PATCH.patch
     ERROR=$?
     if [ $ERROR != 0 ]; then
-      git apply --ignore-space-change --ignore-whitespace --verbose --directory llvm-project patches/$PATCH.patch -R --check
+      git apply --ignore-space-change --ignore-whitespace --verbose --directory llvm-project $wheels_dir/patches/$PATCH.patch -R --check
       ERROR=$?
       if [ $ERROR != 0 ]; then
         exit $ERROR
