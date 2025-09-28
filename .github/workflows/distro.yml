@@ -73,7 +73,7 @@ on:
     - cron: '0 */4 * * *'
 
 concurrency:
-  group: mlir-wheels-${{ github.ref }}
+  group: mlir-wheels-${{ github.ref }}-${{ github.event.schedule }}
   cancel-in-progress: true
 
 jobs:
